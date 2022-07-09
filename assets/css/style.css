@@ -1,13 +1,13 @@
 @charset "utf-8";
 /* ==========================================================================
-   1. CSS Reset Code
-   ========================================================================== */
+1. CSS Reset Code
+========================================================================== */
 
 /* 1.1. Eric Meyers Reset
-   http://meyerweb.com/eric/tools/css/reset/
-   v2.0 | 20110126
-   License: none (public domain)
-   ========================================================================== */
+http://meyerweb.com/eric/tools/css/reset/
+v2.0 | 20110126
+License: none (public domain)
+========================================================================== */
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
 blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img,
 ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center,
@@ -70,7 +70,7 @@ sup { top: -.7em; }
 sub { bottom: -.25em; }
 
 /* 1.2. Clear Fix
-   ========================== */
+========================== */
 
 .cf:before,
 .cf:after {
@@ -100,55 +100,463 @@ li {
 /*for wrapper*/
 .wrapper {
   max-width: 1360px;
-  width: 86%; 
+  width: 72%; 
   margin: 0 auto;
 }
 /*=================================
-  Header styling starts here
+Header styling starts here
 =================================*/
+header {
+  width: 100%;
+  border-top: 10px solid black;
+  position: fixed;
+  background: rgb(8,8,8,0.7);
+  z-index: 1;
+  transition: all .5s ease-in;
+}
 
+.header-top {
+  padding:10px 0px ;
+  display: flex;
+  align-items: center;
+  justify-content:flex-end;
+}
 
+.language {
+  margin-right: 2%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
 
+.language a{
+  padding: 0px 2px;
+  color: #fff;
+  font-size: 12px;
+  text-transform:uppercase;
+  text-decoration: none;
+}
 
+.english { border-right: 1px solid #fff; }
+.language li:nth-child(2) { border-right:none; }
+.language li a:hover { background-color: gold;color:#000 }
 
+.search-bar{
+  max-width:150px;
+  max-height: 14px;
+  margin-right: 6px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
 
+.searchtxt input[type="text"] { 
+  max-width: 65px;
+  border: none;
+  background-color: #6D6E72;
+}
+
+.search-icon {
+  outline:none;
+  background:none;
+  position: absolute;
+  top:1px;
+  right:4px;
+  text-indent: -99999px;
+}
+
+.search-icon::after {
+  content:"\f002";
+  color: #fff;
+  float:right;
+  font-family: "fontAwesome";
+  font-size: 10px;
+  text-indent: 0;
+}
+
+.social-links {
+  display:flex;
+  justify-content:flex-end;
+}
+
+.social-links li { margin-right: 3px; }
+.social-links li a { margin: 0; }
+
+.social-links li a::before {
+  padding: 4px;
+  float:right;
+  background-color: #6D6E72;
+  color: #fff;
+  font-family: "fontAwesome";
+  font-size: 8px;
+  text-indent: 0;
+}
+
+.social-links li:nth-child(1) a::before { content: "\f39e"; } 
+.social-links li:nth-child(2) a::before { content: "\f099"; } 
+.social-links li:nth-child(3) a::before { content: "\f231"; } 
+.social-links li:nth-child(4) a::before { content: "\f16d"; } 
+.social-links li:nth-child(5) a::before { content: "\f173"; } 
+.social-links li:nth-child(6) a::before { content: "\f167"; } 
+
+.social-links li a{
+  border-right: none;
+  text-indent: -99999px;
+}
+
+.social-links li a:hover::before { background-color: gold; }
+
+.header-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+
+.menu-items li {
+  padding:0px 8px;
+  border-right: 1px solid #fff;
+}
+
+.menu-items li:nth-child(1),
+.menu-items li:nth-child(7) { border-right: none; }
+
+.menu-items li a{
+  color: #fff;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.menu-items li a:hover { color: gold; }
+
+.hamburger,
+.icons { display: none; }
+
+.bar {
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  display: block;
+  background-color: #FFF;
+  transition: all 0.3s ease-in-out;
+}
 /*=================================
-  Header styling ends here
+Header styling ends here
 =================================*/  
 
 /*=================================
-  main styling starts here
+main styling starts here
+=================================*/
+/*--banner section--*/
+.banner { position: relative; }
+.banner .wrapper { width: 100%; }
+.banner-img { display: none; }
+.banner-img.active { display: block; }
+.image-slider { position: relative; }
+
+.previous-btn {
+  position: absolute;
+  top:300px;
+  left: 50px;
+}
+
+.next-btn {
+  position: absolute;
+  top:300px;
+  right: 50px;
+}
+.previous-btn::after {
+  content: "\f104";
+  float: left;
+  font-family: "fontAwesome";
+  font-size: 90px;
+  font-weight: bold;
+  text-indent: 0;
+  color: #fff;
+}
+
+.next-btn::after {
+  content: "\f105";
+  float:right;
+  font-family: "fontAwesome";
+  color: #fff;
+  font-size: 90px;
+  font-weight: bold;
+  text-indent: 0;
+}
+
+.nav-btn { text-indent: -99999px; }
+
+.slidergroup {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.dot::after {
+  content: "\f192";
+  color: #FFF;
+  float: right;
+  font-family: "fontAwesome";
+  font-size: 15px;
+  text-indent: 0;
+}
+
+.slidergroup li a { text-indent:-99999px; }
+
+.dot:hover::after {
+  color:goldenrod;
+  transition: .5s ease-in;
+}
+
+/*---image-gallery---*/
+.image-gallery { padding-bottom: 50px; }
+.image-gallery .wrapper { width: 70%; }
+
+.gallery-items {
+  margin-top: 36px;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.gallery-items li {
+  margin-right: 1.5%;
+  margin-bottom: 1.5%;
+}
+
+.seemore {
+  position: absolute;
+  top:150px;
+  right: 300px;
+  color: #AC297C;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.seemore::after {
+  content: "\f101";
+  margin-left:5px;
+  position: absolute;
+  bottom:0;
+  float: right;
+  color:#AC297C;
+  cursor: pointer;
+  font-family: "fontAwesome";
+  font-size: 25px;
+  text-indent: 0;
+}
+
+.seemore a:hover { color:#912D61; }
+/*=================================
+main styling ends here
 =================================*/
 
-
-
-
-
-
-
-
 /*=================================
-  main styling ends here
-=================================*/
-
-/*=================================
-  footer styling starts here
+footer styling starts here
 =================================*/ 
+footer {
+  padding-top: 25px;
+  background-color: #000;
+  color:#fff;
+}
 
+.footer-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
 
+.footer-links li a::before {
+  padding: 5px;
+  margin-right: 2px;
+  float:right;
+  background-color: #6D6E72;
+  color: #fff;
+  font-family: "fontAwesome";
+  font-size: 9px;
+  text-indent: 0;
+}
 
+.footer-links li:nth-child(1) a::before { content: "\f39e"; } 
+.footer-links li:nth-child(2) a::before { content: "\f099"; } 
+.footer-links li:nth-child(3) a::before { content: "\f231"; } 
+.footer-links li:nth-child(4) a::before { content: "\f16d"; } 
+.footer-links li:nth-child(5) a::before { content: "\f173"; } 
+.footer-links li:nth-child(6) a::before { content: "\f167"; } 
 
+.footer-links li a{ text-indent: -99999px; }
+.footer-links li a:hover::before { background-color: gold; }
 
+.footer-bottom {
+  padding: 15px 0px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
+.footer-bottom span{ font-size: 11px; }
 
- /*=================================
-  footer styling ends here
+.footer-nav  li {
+  padding:0px  5px;
+  border-right: 1px solid #fff;
+  text-align: center;
+}
+
+.footer-nav li:nth-child(1),
+.footer-nav li:nth-child(7) { border-right: none; }
+
+.footer-nav li a {
+  color: #fff;
+  font-size: 14px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.footer-nav li a:hover { color: gold; }
+/*=================================
+footer styling ends here
 =================================*/ 
 
 /*media query starts*/
 /*media query for 995px starts here*/
+
+@media only screen and (max-width: 1220px) {
+  h1 { flex-basis: 30%; }
+}
+@media only screen and (max-width: 1110px) { 
+  .menu-items li { padding: 0px 3px; }
+  .menu-items li a { font-size: 12px; }
+}
+
 @media only screen and (max-width: 995px) {
+  
+  .seemore {
+    left: 200px;
+    top: 450px;
+  }
+  
+  .share-nodes,
+  .search, 
+  .bar { text-indent:-99999px; }
+  
+  .hamburger { display: block; }
+  .icons { display:flex; }
+  
+  .share-nodes::after,
+  .search::after {
+    margin:5px;
+    float: right;
+    color:#fff;
+    font-family: "fontAwesome";
+    font-size: 20px;
+    text-indent: 0;
+  }
+  
+  .share-nodes::after{content:"\f1e0"}
+  .search::after{content:"\f002"}
+  
+  .share-nodes,
+  .search {
+    padding: 5px;
+    margin: 5px;
+  }
+  .icons {
+    display: flex;
+    margin-left: auto;
+  }
+  
+  .share-nodes:hover::after,
+  .search:hover::after{ color: gold; }
+  
+  nav {
+    width: 100%;
+    display: none;
+    position: absolute;
+    top:90px;
+    right: 0px;
+    background-color: #000;
+    
+  }
+  
+  .menu-items {
+    width: 100%;
+    max-height:100%;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center; 
+  }
+  
+  .menu-items li {
+    border-right: none;
+    margin-bottom: 20px; 
+  }
+}
 
+.menu-items li a { font-size: 15px; }
+.hamburger:hover + nav { display: block; }
+.next-btn::after,
+.previous-btn::after { font-size: 70px; }
+.footer-nav li a { font-size: 12px; } 
 
+@media only screen and (max-width: 767px) {
+  .header-bottom { padding-bottom: 5px; }
+  .next-btn, .previous-btn { top: 200px; }
+  .next-btn::after, 
+  .previous-btn::after { font-size: 50px; }
+  
+  .seemore::after { left: 50px; }
+  .seemore { top:420px; }
+  
+  .footer-nav {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+  }
+}
+@media only screen and (max-width: 480px){
+  h1 { flex-basis: 50%; } 
+  
+  .next-btn {
+    top: 100px;
+    left: 10px;
+  }
+  
+  .previous-btn {
+    top: 100px;
+    left: 20px;
+  }
+  
+  .seemore { font-size: 12px; }
+  .seemore::after { font-size: 14px; }
+  .footer-nav li a { font-size: 10px; }
+  .footer-bottom { flex-direction: column-reverse; }
+  .footer-nav { flex-direction:column; }
+  .footer-bottom span { margin-top: 15px; }
+  .footer-nav li { border-right: none; }
+}
+@media only screen and (max-width: 440px) {
+  .seemore{top:392px;}
+}
 
-}  
+@media only screen and (max-width: 410px) {
+  .seemore{top:360px;}
+}
+
+@media only screen and (max-width: 320px) {
+  .seemore{
+    top:270px;
+    left: 100px;
+    font-size: 10px;
+  }
+  
+  .footer-nav li a,
+  .footer-bottom span { font-size:8px; }
+  .next-btn::after,
+  .previous-btn::after { font-size: 20px; }
+  .previous-btn,.next-btn { top:80px; }
+}
